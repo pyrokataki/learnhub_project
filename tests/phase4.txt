@@ -1,0 +1,61 @@
+# Phase 4 — Tests de l'API avec Thunder Client (Logique Métier)
+
+Ce document détaille comment tester les opérations complexes de l'API LearnHub.
+
+1. Inscrire un utilisateur à un cours
+- Méthode : `POST`
+- URL : `http://localhost:3000/api/enrollments`
+- Logique : Vérifie l'utilisateur, le cours (doit être publié), l'absence de doublon, crée l'inscription et incrémente les compteurs.
+- Body (JSON) :
+```json
+{
+  "userId": "69a65323ea949951d37c2907",
+  "courseId": "69a65323ea949951d37c2920"
+}
+```
+
+---
+
+ 2. Laisser un avis sur un cours
+- Méthode : `POST`
+- URL : `http://localhost:3000/api/reviews`
+- Logique : Vérifie l'inscription, l'absence de doublon d'avis, crée la review et recalcule la moyenne du cours.
+- Body (JSON) :
+```json
+{
+  "userId": "69a65323ea949951d37c2907",
+  "courseId": "69a65323ea949951d37c2924",
+  "rating": 5,
+  "title": "Excellent cours !",
+  "comment": "Très clair et bien structuré."
+}
+```
+
+---
+
+3. Marquer une leçon comme complétée
+- Méthode : `PATCH`
+- URL : `http://localhost:3000/api/enrollments/69a65323ea949951d37c2959/progress`
+- Logique : Ajoute la leçon, recalcule le %, et passe le statut à "completed" si 100%.
+- Body (JSON) :
+```json
+{
+  "lessonId": "69a65323ea949951d37c2931"
+}
+```
+
+---
+
+4. Suppression en cascade d'un cours
+- Méthode : `DELETE`
+- URL : `http://localhost:3000/api/courses/69a65323ea949951d37c291f`
+- Logique : Supprime le cours, ses leçons, ses reviews, et annule les inscriptions liées.
+- Body : Aucun
+
+---
+
+5. Dashboard utilisateur
+- Méthode : `GET`
+- URL : `http://localhost:3000/api/users/69a65323ea949951d37c290a/dashboard`
+- Logique : Retourne les infos utilisateur (projection), ses inscriptions actives et ses 5 derniers avis.
+- Body : Aucun

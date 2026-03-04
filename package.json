@@ -1,0 +1,19 @@
+{
+  "name": "learnhub-api",
+  "version": "1.0.0",
+  "description": "API REST pour la plateforme LearnHub",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "mongosh scripts/seed.js",
+    "queries": "mongosh learnhub scripts/queries.mongosh.js"
+  },
+  "keywords": ["mongodb", "express", "api"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0"
+  }
+}

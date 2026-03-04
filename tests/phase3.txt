@@ -1,0 +1,40 @@
+-- A retenir --
+
+--- [ POST ] Creer un utilisateur ---
+URL: POST http://localhost:3000/api/users
+BODY: {"firstName":"Isaac","lastName":"Newton","email":"isaac.newton@learnhub.com","role":"instructor","skills":["Physique","Maths"]}
+
+
+--- [ POST ] Creer plusieurs cours ---
+URL: POST http://localhost:3000/api/courses/bulk
+BODY: [{"title":"Lois du Mouvement","price":99.99},{"title":"Optique","price":59.99}]
+
+
+
+--- [ GET ] Lister et filtrer les cours ---
+URL: GET http://localhost:3000/api/courses?category=Web&sort=price
+
+
+
+--- [ GET ] Recuperer un utilisateur par ID ---
+URL: GET http://localhost:3000/api/users/69a65323ea949951d37c2908
+
+
+
+
+--- [ PATCH ] Mettre a jour un utilisateur ---
+URL: PATCH http://localhost:3000/api/users/69a65323ea949951d37c2909
+BODY: {"operation":"push","data":{"skills":"Alchimie"}}
+
+
+
+--- [ PUT ] Mettre a jour/creer un profil ---
+URL: PUT http://localhost:3000/api/users/69a65323ea949951d37c290d/profile
+BODY: {"bio":"Philosophe naturel et théologien."}
+
+
+
+--- [ DELETE ] Supprimer un cours ---
+URL: DELETE http://localhost:3000/api/courses/69a65323ea949951d37c2922
+
+
