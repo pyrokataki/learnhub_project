@@ -24,6 +24,7 @@ L'API expose les fonctionnalités via HTTP.
 
 ### Installation
 ```bash
+cd Documents/projects_ynov/mongodb_exam
 npm install
 ```
 
